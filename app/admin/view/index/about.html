@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html class="no-js css-menubar" lang="zh-cn">
+
+<head>
+    <title>主页</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- 移动设备 viewport -->
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no,minimal-ui">
+    <meta name="author" content="admui.com">
+    <!-- 360浏览器默认使用Webkit内核 -->
+    <meta name="renderer" content="webkit">
+    <!-- 禁止搜索引擎抓取 -->
+    <meta name="robots" content="nofollow">
+    <!-- 禁止百度SiteAPP转码 -->
+    <meta http-equiv="Cache-Control" content="no-siteapp">
+    <!-- Chrome浏览器添加桌面快捷方式（安卓） -->
+    <link rel="icon" type="image/png" href="{$_static}/static/admui/public/images/favicon.png">
+    <meta name="mobile-web-app-capable" content="yes">
+    <!-- Safari浏览器添加到主屏幕（IOS） -->
+    <link rel="icon" sizes="192x192" href="{$_static}/static/admui/public/images/apple-touch-icon.png">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="Admui">
+    <!-- Win8标题栏及ICON图标 -->
+    <link rel="apple-touch-icon-precomposed" href="{$_static}/static/admui/public/images/apple-touch-icon.png">
+    <meta name="msapplication-TileImage" content="{$_static}/static/admui/public/images/app-icon72x72@2x.png">
+    <meta name="msapplication-TileColor" content="#62a8ea">
+    <!-- 图标 CSS -->
+    <link rel="stylesheet" href="{$_static}/static/admui/public/fonts/font-awesome/font-awesome.css">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="{$_static}/static/admui/public/themes/classic/global/css/bootstrap.css">
+    <!-- Site CSS -->
+    <link rel="stylesheet" href="{$_static}/static/admui/public/themes/classic/base/css/site.css" id="admui-siteStyle">
+    <link rel="stylesheet" href="{$_static}/static/admui/public/vendor/animsition/animsition.css">
+    <!-- 插件 CSS -->
+    <link rel="stylesheet" href="{$_static}/static/admui/public/vendor/toastr/toastr.css">
+    <!-- page CSS -->
+    <!-- 插件 -->
+    <script src="{$_static}/static/admui/public/vendor/jquery/jquery.min.js"></script>
+    <script src="{$_static}/static/admui/public/vendor/bootstrap/bootstrap.min.js"></script>
+    <script src="{$_static}/static/admui/public/vendor/modernizr/modernizr.min.js"></script>
+    <script src="{$_static}/static/admui/public/vendor/breakpoints/breakpoints.min.js"></script>
+    <script src="{$_static}/static/admui/public/vendor/artTemplate/template.min.js"></script>
+    <script src="{$_static}/static/admui/public/vendor/toastr/toastr.min.js"></script>
+    <!--[if lte IE 9]>
+    <meta http-equiv="refresh" content="0; url='http://www.admui.com/ie'"/>
+    <![endif]-->
+    <!--[if lt IE 10]>
+    <script src="{$_static}/static/admui/public/vendor/media-match/media.match.min.js"></script>
+    <script src="{$_static}/static/admui/public/vendor/respond/respond.min.js"></script>
+    <![endif]-->
+    <!-- 核心 -->
+    <script src="{$_static}/static/admui/public/themes/classic/base/js/site.js"></script>
+    <script src="{$_static}/static/admui/public/themes/classic/global/js/configs/site-configs.js"></script>
+    <script src="{$_static}/static/admui/public/themes/classic/global/js/components.js"></script>
+    <style type="text/css">
+        #shortcuts a{text-decoration: none;color: #666;}
+    </style>
+</head>
+<body class="bg-hui">
+    <div class="page animation-fade">
+        <div class="page-content">
+            <div class="bg-white clearfix margin-bottom-20">
+                <div class="col-md-12 margin-bottom-20">
+                    <h3 class="font-size-24 pull-left" style="padding: 0 12px;">销售数据</h3>
+                    <div class="pull-left margin-left-50 margin-top-15">
+                        <ul class="nav nav-pills">
+                            <li class="nav-item active">
+                                <a class="nav-link" data-toggle="tab" href="#">今日</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" data-toggle="tab" href="#">昨日</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" data-toggle="tab" href="#">本月</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-md-4 margin-bottom-20">
+                    <div class="padding-left-20 padding-right-20" style="border-right: solid 1px #ddd;">
+                        <div class="content-text text-center">
+                            <span class="font-size-40">628</span>
+                            <p class="font-size-18">今日销售额</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 margin-bottom-20">
+                    <div class="padding-left-20 padding-right-20" style="border-right: solid 1px #ddd;">
+                        <div class="content-text text-center">
+                            <span class="font-size-40">28</span>
+                            <p class="font-size-18">今日销售订单数</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 margin-bottom-20">
+                    <div class="padding-left-20 padding-right-20">
+                        <div class="content-text text-center">
+                            <span class="font-size-40">56</span>
+                            <p class="font-size-18">今日退款金额</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="bg-white clearfix margin-bottom-20">
+                <div class="col-md-12 margin-bottom-20">
+                    <h3 class="font-size-24" style="padding: 0 12px;">自营商品</h3>
+                </div>
+                <div class="col-md-3 margin-bottom-20">
+                    <div class="padding-left-20 padding-right-20" style="border-right: solid 1px #ddd;">
+                        <div class="content-text text-center">
+                            <span class="font-size-40">628</span>
+                            <p class="font-size-18">出售中商品</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 margin-bottom-20">
+                    <div class="padding-left-20 padding-right-20" style="border-right: solid 1px #ddd;">
+                        <div class="content-text text-center">
+                            <span class="font-size-40">628</span>
+                            <p class="font-size-18">警戒中商品</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 margin-bottom-20">
+                    <div class="padding-left-20 padding-right-20" style="border-right: solid 1px #ddd;">
+                        <div class="content-text text-center">
+                            <span class="font-size-40">¥ 18,628</span>
+                            <p class="font-size-18">仓库中商品</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 margin-bottom-20">
+                    <div class="padding-left-20 padding-right-20">
+                        <div class="content-text text-center">
+                            <span class="font-size-40">¥ 456</span>
+                            <p class="font-size-18">已售罄商品</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="bg-white clearfix margin-bottom-20">
+                <div class="col-md-12 margin-bottom-20">
+                    <h3 class="font-size-24" style="padding: 0 12px;">分销渠道</h3>
+                </div>
+                <div class="col-md-4 margin-bottom-20">
+                    <div class="padding-left-20 padding-right-20" style="border-right: solid 1px #ddd;">
+                        <div class="content-text text-center">
+                            <span class="font-size-40">628</span>
+                            <p class="font-size-18">分销商总数</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 margin-bottom-20">
+                    <div class="padding-left-20 padding-right-20" style="border-right: solid 1px #ddd;">
+                        <div class="content-text text-center">
+                            <span class="font-size-40">28</span>
+                            <p class="font-size-18">启用中</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 margin-bottom-20">
+                    <div class="padding-left-20 padding-right-20">
+                        <div class="content-text text-center">
+                            <span class="font-size-40">56</span>
+                            <p class="font-size-18">已停用</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="bg-white padding-20">
+                        <h3 class="font-size-24 margin-top-10">快捷功能</h3>
+                        <div class="clearfix padding-top-10" id="shortcuts">
+                            <div class="width-150 pull-left text-center">
+                                <a href="javascript:;">
+                                    <img class="img-circle" width="120" height="120" src="http://cdn.admui.com/demo/iframe/2.1.0/images/photos/view-1.jpg" alt="...">
+                                    <p class="margin-top-10">分销市场</p>
+                                </a>
+                            </div>
+                            <div class="width-150 pull-left text-center">
+                                <a href="javascript:;">
+                                    <img class="img-circle" width="120" height="120" src="http://cdn.admui.com/demo/iframe/2.1.0/images/photos/view-2.jpg" alt="...">
+                                    <p class="margin-top-10">分销渠道</p>
+                                </a>
+                            </div>
+                            <div class="width-150 pull-left text-center">
+                                <a href="javascript:;">
+                                    <img class="img-circle" width="120" height="120" src="http://cdn.admui.com/demo/iframe/2.1.0/images/photos/view-3.jpg" alt="...">
+                                    <p class="margin-top-10">自营商品管理</p>
+                                </a>
+                            </div>
+                            <div class="width-150 pull-left text-center">
+                                <a href="javascript:;">
+                                    <img class="img-circle" width="120" height="120" src="http://cdn.admui.com/demo/iframe/2.1.0/images/photos/view-4.jpg" alt="...">
+                                    <p class="margin-top-10">供应商商品管理</p>
+                                </a>
+                            </div>
+                            <div class="width-150 pull-left text-center">
+                                <a href="javascript:;">
+                                    <img class="img-circle" width="120" height="120" src="http://cdn.admui.com/demo/iframe/2.1.0/images/photos/view-5.jpg" alt="...">
+                                    <p class="margin-top-10">订单管理</p>
+                                </a>
+                            </div>
+                            <div class="width-150 pull-left text-center">
+                                <a href="javascript:;">
+                                    <img class="img-circle" width="120" height="120" src="http://cdn.admui.com/demo/iframe/2.1.0/images/photos/view-6.jpg" alt="...">
+                                    <p class="margin-top-10">分销市场</p>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<!--插件 -->
+<script src="{$_static}/static/admui/public/themes/classic/global/js/plugins/responsive-tabs.js"></script>
+<script src="{$_static}/static/admui/public/vendor/ashoverscroll/jquery-asHoverScroll.min.js"></script>
+<script src="{$_static}/static/admui/public/vendor/slimscroll/jquery.slimscroll.min.js"></script>
+<script src="{$_static}/static/admui/public/vendor/screenfull/screenfull.min.js"></script>
+<script src="{$_static}/static/admui/public/vendor/matchheight/jquery.matchHeight.min.js"></script>
+</html>

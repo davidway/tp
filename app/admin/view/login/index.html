@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+
+<head>
+    <title>登录</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- 移动设备 viewport -->
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no,minimal-ui">
+    <meta name="author" content="admui.com">
+    <!-- 360浏览器默认使用Webkit内核 -->
+    <meta name="renderer" content="webkit">
+    <!-- 禁止搜索引擎抓取 -->
+    <meta name="robots" content="nofollow">
+    <!-- 禁止百度SiteAPP转码 -->
+    <meta http-equiv="Cache-Control" content="no-siteapp">
+    <!-- Chrome浏览器添加桌面快捷方式（安卓） -->
+    <link rel="icon" type="image/png" href="{$_static}/static/admui/public/images/favicon.png">
+    <meta name="mobile-web-app-capable" content="yes">
+    <!-- Safari浏览器添加到主屏幕（IOS） -->
+    <link rel="icon" sizes="192x192" href="{$_static}/static/admui/public/images/apple-touch-icon.png">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="Admui">
+    <!-- Win8标题栏及ICON图标 -->
+    <link rel="apple-touch-icon-precomposed" href="{$_static}/static/admui/public/images/apple-touch-icon.png">
+    <meta name="msapplication-TileImage" content="/images/app-icon72x72@2x.png">
+    <meta name="msapplication-TileColor" content="#62a8ea">
+
+    <!-- 图标 CSS -->
+    <link rel="stylesheet" href="{$_static}/static/admui/public/fonts/web-icons/web-icons.css">
+    <link rel="stylesheet" href="{$_static}/static/admui/public/fonts/font-awesome/font-awesome.css">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="{$_static}/static/admui/public/themes/classic/global/css/bootstrap.css">
+
+    <!-- Site CSS -->
+    <link rel="stylesheet" href="{$_static}/static/admui/public/themes/classic/base/css/site.css" id="admui-siteStyle">
+
+    <!-- 插件 CSS -->
+    <link rel="stylesheet" href="{$_static}/static/admui/public/vendor/animsition/animsition.css">
+    <link rel="stylesheet" href="{$_static}/static/admui/public/vendor/toastr/toastr.css">
+    <!-- <link rel="stylesheet" href="{$_static}/static/admui/public/vendor/slick-carousel/slick.css"> -->
+    <!-- page CSS -->
+    <link rel="stylesheet" href="{$_static}/static/admui/public/css/login.css">
+    <link rel="stylesheet" href="{$_static}/static/admui/public/css/jquery.slider.css">
+
+    <script src="{$_static}/static/admui/public/vendor/jquery/jquery.min.js"></script>
+    <script src="{$_static}/static/admui/public/vendor/bootstrap/bootstrap.min.js"></script>
+    <script src="{$_static}/static/admui/public/vendor/modernizr/modernizr.min.js"></script>
+    <script src="{$_static}/static/admui/public/vendor/breakpoints/breakpoints.min.js"></script>
+    <script src="{$_static}/static/admui/public/vendor/artTemplate/template.min.js"></script>
+    <script src="{$_static}/static/admui/public/vendor/toastr/toastr.min.js"></script>
+    <script src="{$_static}/static/admui/public/js/vue.min.js"></script>
+    <!--[if lte IE 9]>
+    <meta http-equiv="refresh" content="0; url='http://www.admui.com/ie'"/>
+    <![endif]--><!--[if lt IE 10]>
+    <script src="{$_static}/static/admui/public//vendor/media-match/media.match.min.js"></script>
+    <script src="{$_static}/static/admui/public//vendor/respond/respond.min.js"></script><![endif]-->
+    <script src="{$_static}/static/admui/public/themes/classic/base/js/site.js"></script>
+    <script src="{$_static}/static/admui/public/themes/classic/global/js/configs/site-configs.js"></script>
+    <script src="{$_static}/static/admui/public/themes/classic/global/js/components.js"></script>
+</head>
+<body class="page-login layout-full page-dark">
+<div class="page height-full" id="pageVue" v-cloak>
+    <div class="page-content height-full">
+        <div class="page-brand-info vertical-align animation-slide-left hidden-xs">
+            <div class="page-brand vertical-align-middle">
+                <h2 class="hidden-sm"><img style="margin:0 10px 0 0;" src="{$_static}/static/admui/public/images/login/icon.png">微三云系统</h2>
+                <ul class="list-icons hidden-sm">
+                    <li class="font-size-16">微三云机器人机器人的拨号频率可以达到每天800-1200通，是人工拨打频率的4-5倍。可以根据客户的问题进行智能应答，语音识别迅速，准确判断出是否为意向客户，对意向客户的初筛和选择省时又高效。百应可以将销售人员从重复的初筛工作中解放出来。全力投入到有效客户的跟进中。
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="page-login-main animation-fade">
+            <div class="margin-top-20 text-right">
+                <select class="form-control inline" style="width:auto;">
+                    <option>简体中文</option>
+                    <option>繁体中文</option>
+                    <option>英文</option>
+                    <option>德文</option>
+                    <option>法文</option>
+                </select>
+            </div>
+
+            <div class="vertical-align">
+                <div class="vertical-align-middle" style="width: 100%;">
+                    <h3 class="hidden-xs">登录系统</h3>
+                    <p class="hidden-xs">供应链系统</p>
+                    <form class="login-form" action="" method="post" id="loginForm">
+                        <div class="form-group">
+                            <div class="input-group">
+                                <div class="input-group-btn">
+                                    <button type="button" class="btn btn-default btn-outline dropdown-toggle" data-toggle="dropdown" aria-expanded="false" style="height: 42px;">
+                                        {{login_form.phone_code}}<span class="caret"></span>
+                                    </button>
+                                    <ul class="dropdown-menu" aria-labelledby="exampleColorDropdown1" role="menu" style="max-height:300px;overflow:auto;">
+                                        <li role="presentation" v-for="(item,index) in area_code_list" @click="changeCode(index,1)">
+                                            <a href="javascript:;" role="menuitem">{{item.name}}({{item.code}})</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <input type="text" v-model="login_form.phone" name="phone" class="form-control" placeholder="请输入您的手机号">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <input type="password" class="form-control" v-model="login_form.password" name="password" placeholder="请输入登录密码">
+                        </div>
+                        <div class="form-group">
+                            <div id="slider" class="slider"></div>
+                        </div>
+                        <div class="form-group text-right">
+                            <a style="cursor:pointer;" data-target="#verify-login" data-toggle="modal">手机验证登录</a>
+                        </div>
+                        <button type="button" @click="loginFun($event)" class="btn btn-primary btn-block margin-top-30">登录</button>
+                    </form>
+                </div>
+            </div>
+            <footer class="page-copyright">
+                <p class="font-size-16">
+                    <a href="javascript:;">帮助</a>
+                    <a href="javascript:;">隐私</a>
+                    <a href="javascript:;">条款</a>
+                </p>
+                <p>copyright&copy; 2017 微三云产品部出品
+                </p>
+            </footer>
+        </div>
+    </div>
+    <div class="modal fade" id="verify-login" aria-hidden="true" aria-labelledby="verify-login" role="dialog" tabindex="-1">
+        <div class="modal-dialog modal-center">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="关闭">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                    <h4 class="modal-title">手机验证登录</h4>
+                </div>
+                <form class="form-horizontal padding-20">
+                    <div class="form-group">
+                        <label class="col-xs-3 control-label">手机号码：</label>
+                        <div class="col-xs-9">
+                            <div class="input-group">
+                                <div class="input-group-btn">
+                                    <button type="button" class="btn btn-default btn-outline dropdown-toggle" data-toggle="dropdown" aria-expanded="false" style="border-right:0">
+                                        {{verify_form.phone_code}}<span class="caret"></span>
+                                    </button>
+                                    <ul class="dropdown-menu" aria-labelledby="exampleColorDropdown1" role="menu" style="max-height:300px;overflow:auto;">
+                                        <li role="presentation" v-for="(item,index) in area_code_list" @click="changeCode(index,2)">
+                                            <a href="javascript:;" role="menuitem">{{item.name}}({{item.code}})</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <input type="text" v-model="verify_form.phone" class="form-control" placeholder="请输入手机号码" autocomplete="off">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-xs-3 control-label">验证码：</label>
+                        <div class="col-xs-9">
+                            <div class="input-group">
+                                <input type="text" v-model="verify_form.verify_code" class="form-control" placeholder="请输入验证码" autocomplete="off">
+                                <span class="input-group-btn">
+                                        <button type="button" class="btn btn-primary" @click="getVerifyCode($event)">发送验证码</button>
+                                    </span>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                    <button type="button" @click="verifyLoginFun($event)" class="btn btn-primary">确定</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+<!-- JS -->
+<script src="{$_static}/static/admui/public/themes/classic/global/js/plugins/responsive-tabs.js"></script>
+<script src="{$_static}/static/admui/public/js/jquery.slider.min.js"></script>
+<script src="{$_static}/static/admui/public/vendor/toastr/toastr.min.js"></script>
+<!-- <script src="{$_static}/static/admui/public/vendor/slick-carousel/slick.min.js"></script> -->
+<script type="text/javascript">
+    (function (window, document, $) {
+        'use strict';
+        var reg_phone = /^1\d{10}$/;
+        ///*手机号码正则*/
+        var vm = new Vue({
+            el: '#pageVue',
+            data: {
+                area_code_list:[],
+                slider_result:false,
+                login_form:{
+                    phone:'',
+                    password:'',
+                    phone_code:'+86'
+                },
+                verify_form:{
+                    phone:'',
+                    verify_code:'',
+                    phone_code:'+86'
+                }
+            },
+            created: function() {
+                this.getAreaCodeList();
+            },
+            mounted:function(){
+
+            },
+            methods: {
+                getAreaCodeList(){
+                    //获取手机区号
+                    var arry = [
+                        {name:'中国大陆',code:'+86'},
+                        {name:'中国台湾',code:'+886'},
+                        {name:'中国香港',code:'+852'},
+                        {name:'中国澳门',code:'+853'},
+                        {name:'马来西亚',code:'+60'},
+                        {name:'菲律宾',code:'+63'},
+                        {name:'新加坡',code:'+65'},
+                        {name:'泰国',code:'+66'},
+                        {name:'日本',code:'+81'},
+                        {name:'韩国',code:'+82'},
+                        {name:'印度',code:'+91'},
+                        {name:'俄罗斯',code:'+7'},
+                        {name:'希腊',code:'+30'},
+                        {name:'荷兰',code:'+31'},
+                        {name:'西班牙',code:'+34'},
+                        {name:'瑞士',code:'+41'},
+                        {name:'丹麦',code:'+45'},
+                        {name:'瑞典',code:'+46'},
+                        {name:'挪威',code:'+47'},
+                        {name:'葡萄牙',code:'+351'},
+                        {name:'澳大利亚',code:'+61'},
+                        {name:'新西兰',code:'+64'},
+                        {name:'美国',code:'+1'},
+                        {name:'加拿大',code:'+1'},
+                        {name:'英国',code:'+44'},
+                        {name:'德国',code:'+49'},
+                        {name:'意大利',code:'+39'},
+                        {name:'法国',code:'+33'},
+                        {name:'墨西哥',code:'+52'}
+                    ];
+                    this.area_code_list = arry;
+                },
+                changeCode(index,type){
+                    ///切换区号
+                    var that = this;
+                    if(type == 1){
+                        that.login_form.phone_code = that.area_code_list[index].code;
+                    }else{
+                        that.verify_form.phone_code = that.area_code_list[index].code;
+                    }
+                },
+                loginFun(e){
+                    ///账号密码登录
+                    var that = this;
+                    var obj = e.currentTarget;
+                    if(that.login_form.phone == ''){
+                        toastr.error('请输入您的手机号码');
+                        return false;
+                    }else if(that.login_form.phone_code == '+86' && !reg_phone.test(that.login_form.phone)){
+                        toastr.error('请输入正确的手机号码');
+                        return false;
+                    }else if(that.login_form.phone_code == '82' && that.login_form.phone[0] == '0'){
+                        toastr.error('请输入正确的手机号码');
+                        return false;
+                    }else if(that.login_form.password == ''){
+                        toastr.error('请输入登录密码');
+                        return false;
+                    }else if(!that.slider_result){
+                        toastr.error('请滑动滑块验证');
+                        return false;
+                    }
+                    //$(obj).attr('disabled',true);
+                    //防止重复提交
+                    that.login(obj, {
+                        'country_code': that.login_form.phone_code,
+                        'phone': that.login_form.phone,
+                        'password': that.login_form.password,
+                        'cate' :'account'
+                    })
+                },
+                verifyLoginFun(e){
+                    /*手机验证登录*/
+                    var that = this;
+                    var obj = e.currentTarget;
+                    if(that.verify_form.phone == ''){
+                        toastr.error('请输入您的手机号码');
+                        return false;
+                    }else if(that.verify_form.phone_code == '+86' && !reg_phone.test(that.verify_form.phone)){
+                        toastr.error('请输入正确的手机号码');
+                        return false;
+                    }else if(that.verify_form.phone_code == '82' && that.verify_form.phone[0] == '0'){
+                        toastr.error('请输入正确的手机号码');
+                        return false;
+                    }else if(that.verify_form.verify_code == ''){
+                        toastr.error('请输入手机验证码');
+                        return false;
+                    }
+                    $(obj).attr('disabled',true);
+
+                },
+                login(obj, data){
+                    $.ajax({
+                        url: '/admin/login/login',
+                        type: 'POST',
+                        dataType: "json",
+                        data: data,
+                        success: function(data){
+                            if (data['code'] == '200'){
+                                toastr.success(data['msg']);
+                                setTimeout(function(){
+                                    location.href = data['data']['url'];
+                                }, 600);
+                            }else{
+                                toastr.error(data['msg']);
+                                $(obj).attr('disabled',false); /*防止重复提交*/
+                            }
+                        }
+                    });
+                },
+                getVerifyCode(e){
+                    /*获取手机验证码*/
+                    var that = this;
+                    var obj = e.currentTarget;
+                    if(that.verify_form.phone == ''){
+                        toastr.error('请输入您的手机号码');
+                        return false;
+                    }else if(that.verify_form.phone_code == '+86' && !reg_phone.test(that.verify_form.phone)){
+                        toastr.error('请输入正确的手机号码');
+                        return false;
+                    }else if(that.verify_form.phone_code == '82' && that.verify_form.phone[0] == '0'){
+                        toastr.error('请输入正确的手机号码');
+                        return false;
+                    }
+                    $(obj).attr('disabled',true);
+                    //防止重复点击
+                    that.countDown('5',obj);
+                },
+                countDown(time,obj){
+                    //倒计时
+                    var that = this
+                    obj.innerHTML = time+'s后重新获取';
+                    var num = time;
+                    if(num > 0) {
+                        obj.innerHTML = num + 's后重新获取'
+                        var timerCodeson = setInterval(function() {
+                            num--;
+                            obj.innerHTML = num + 's后重新获取'
+                            if(num == 0) {
+                                clearInterval(timerCodeson)
+                                obj.innerHTML = '重新获取验证码'
+                                $(obj).removeAttr('disabled');
+                            }
+                        }, 1000)
+                    } else {
+                        obj.innerHTML = '获取验证码';
+                    }
+                },
+            }
+        });
+        /*滑动验证*/
+        $("#slider").slider({
+            width: 350, // width
+            height: 40, // height
+            sliderBg: "#eaeaea", // 滑块背景颜色
+            color: "#76838f", // 文字颜色
+            fontSize: 14, // 文字大小
+            bgColor: "#62a8ea", // 背景颜色
+            textMsg: "请滑动滑块验证", // 提示文字
+            successMsg: "验证成功", // 验证成功提示文字
+            successColor: "#fff", // 滑块验证成功提示文字颜色
+            time: 400, // 返回时间
+            callback: function(result) { // 回调函数，true(成功),false(失败)
+                vm.slider_result = result;
+            }
+        });
+        /*toastr提示插件参数配置*/
+        toastr.options = {
+            "closeButton": false, //是否显示关闭按钮
+            "debug": false, //是否使用debug模式
+            "positionClass": "toast-top-right",//弹出窗的位置
+            "showDuration": "300",//显示的动画时间
+            "hideDuration": "1000",//消失的动画时间
+            "timeOut": "5000", //展现时间
+            "extendedTimeOut": "1000",//加长展示时间
+            "showEasing": "swing",//显示时的动画缓冲方式
+            "hideEasing": "linear",//消失时的动画缓冲方式
+            "showMethod": "fadeIn",//显示时的动画方式
+            "hideMethod": "fadeOut" //消失时的动画方式
+        };
+    })(window, document, jQuery);
+</script>
+</html>

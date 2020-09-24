@@ -1,0 +1,591 @@
+<!DOCTYPE html>
+<html class="no-js css-menubar" lang="zh-cn">
+
+<head>
+    <title>分销商列表</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- 移动设备 viewport -->
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no,minimal-ui">
+    <meta name="author" content="admui.com">
+    <!-- 360浏览器默认使用Webkit内核 -->
+    <meta name="renderer" content="webkit">
+    <!-- 禁止搜索引擎抓取 -->
+    <meta name="robots" content="nofollow">
+    <!-- 禁止百度SiteAPP转码 -->
+    <meta http-equiv="Cache-Control" content="no-siteapp">
+    <!-- Chrome浏览器添加桌面快捷方式（安卓） -->
+    <link rel="icon" type="image/png" href="{$_static}/static/admui/public/images/favicon.png">
+    <meta name="mobile-web-app-capable" content="yes">
+    <!-- Safari浏览器添加到主屏幕（IOS） -->
+    <link rel="icon" sizes="192x192" href="{$_static}/static/admui/public/images/apple-touch-icon.png">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="Admui">
+    <!-- Win8标题栏及ICON图标 -->
+    <link rel="apple-touch-icon-precomposed" href="{$_static}/static/admui/public/images/apple-touch-icon.png">
+    <meta name="msapplication-TileImage" content="{$_static}/static/admui/public/images/app-icon72x72@2x.png">
+    <meta name="msapplication-TileColor" content="#62a8ea">
+    <!-- 图标 CSS -->
+    <link rel="stylesheet" href="{$_static}/static/admui/public/fonts/font-awesome/font-awesome.css">
+    <link rel="stylesheet" href="{$_static}/static/admui/public/fonts/web-icons/web-icons.css">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="{$_static}/static/admui/public/themes/classic/global/css/bootstrap.css">
+    <!-- Site CSS -->
+    <link rel="stylesheet" href="{$_static}/static/admui/public/themes/classic/base/css/site.css" id="admui-siteStyle">
+    <!-- 插件 CSS -->
+    <link rel="stylesheet" href="{$_static}/static/admui/public/vendor/toastr/toastr.css">
+    <link rel="stylesheet" href="{$_static}/static/admui/public/vendor/bootstrap-datetimepicker/css/bootstrap-combined.css">
+    <link rel="stylesheet" href="{$_static}/static/admui/public/vendor/bootstrap-datetimepicker/css/bootstrap-datetimepicker.min.css">
+    <link rel="stylesheet" href="{$_static}/static/admui/public/vendor/formvalidation/formValidation.css">
+    <!-- 插件 CSS -->
+    <!-- page CSS -->
+    <!-- 插件 -->
+    <script src="{$_static}/static/admui/public/vendor/jquery/jquery.min.js"></script>
+    <script src="{$_static}/static/admui/public/vendor/bootstrap/bootstrap.min.js"></script>
+    <script src="{$_static}/static/admui/public/vendor/modernizr/modernizr.min.js"></script>
+    <script src="{$_static}/static/admui/public/vendor/breakpoints/breakpoints.min.js"></script>
+    <script src="{$_static}/static/admui/public/vendor/artTemplate/template.min.js"></script>
+    <script src="{$_static}/static/admui/public/vendor/toastr/toastr.min.js"></script>
+    <!--[if lte IE 9]>
+    <meta http-equiv="refresh" content="0; url='http://www.admui.com/ie'"/>
+    <![endif]-->
+    <!--[if lt IE 10]>
+    <script src="{$_static}/static/admui/public/vendor/media-match/media.match.min.js"></script>
+    <script src="{$_static}/static/admui/public/vendor/respond/respond.min.js"></script>
+    <![endif]-->
+    <!-- 核心 -->
+    <script src="{$_static}/static/admui/public/themes/classic/base/js/site.js"></script>
+    <script src="{$_static}/static/admui/public/themes/classic/global/js/configs/site-configs.js"></script>
+    <script src="{$_static}/static/admui/public/themes/classic/global/js/components.js"></script>
+    <style type="text/css">
+        .table-tips{display:inline-block;width:6px;height: 6px;border-radius: 50%;vertical-align: middle;}
+    </style>
+</head>
+<body class="bg-hui">
+    <div class="padding-20 bg-white margin-20 page-header-box">
+        <button type="button" onclick="iframeLink('/admin/user/add','新建分销商')" class="btn btn-primary">新建分销商</button>
+        <hr/>
+        <form class="form-inline font-size-0" id="enter-search">
+            <div class="form-group margin-right-30">
+                <label class="control-label">编号：</label>
+                <input type="text" class="form-control" placeholder="请输入编号" name="">
+                <button type="button" class="input-search-close icon wb-close searchClear" aria-label="清空"></button>
+            </div>
+            <div class="form-group margin-right-30">
+                <label class="control-label">分销商名称：</label>
+                <input type="text" class="form-control" placeholder="请输入分销商名称" name="">
+                <button type="button" class="input-search-close icon wb-close searchClear" aria-label="清空"></button>
+            </div>
+            <div class="form-group margin-right-30">
+                <label class="control-label">联系人：</label>
+                <div class="input-group">
+                    <div class="input-group-btn">
+                        <select class="form-control">
+                            <option>选择</option>
+                        </select>
+                    </div>
+                    <input type="text" class="form-control">
+                </div>
+            </div>
+            <div class="form-group margin-right-30">
+                <label class="control-label">分销等级：</label>
+                <select class="form-control">
+                    <option>选择</option>
+                </select>
+            </div>
+            <div class="form-group margin-right-30">
+                <label class="control-label">加入时间：</label>
+                <div class="inline-block text-middle">
+                    <div class="input-datetimepicker">
+                        <div class="input-group startTime">
+                            <span class="input-group-addon">
+                                <i class="icon wb-calendar" aria-hidden="true"></i>
+                            </span>
+                            <input type="text" class="form-control add-on" name="startTime" placeholder="开始时间" readonly autocomplete="off">
+                        </div>
+                        <div class="dataTime-addon font-size-14"> 至 </div>
+                        <div class="input-group endTime">
+                            <input type="text" class="form-control add-on" name="endTime" placeholder="结束时间" readonly autocomplete="off">
+                            <span class="input-group-addon clear-dataTime">
+                                <i class="icon fa-remove" aria-hidden="true"></i>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group margin-right-30">
+                <label class="control-label">状态：</label>
+                <select class="form-control">
+                    <option>全部</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <button type="button" class="btn btn-primary margin-right-10" onclick="search();">搜索</button>
+                <!-- <button type="button" class="td-btn primary">基本搜索</button> -->
+            </div>
+        </form>
+    </div>
+    <div class="padding-20 margin-20 bg-white  margin-top-20">
+        <div class="full-height" style="overflow-y: auto;">
+            <table class="table">
+                <thead>
+                    <tr class="active">
+                        <td width="10%">编号</td>
+                        <td width="15%">分销商名称</td>
+                        <td width="6%">分销等级</td>
+                        <td width="6%">联系人</td>
+                        <td width="10%">联系方式</td>
+                        <td width="8%">剩余货款</td>
+                        <td width="8%">销售额</td>
+                        <td width="5%">状态</td>
+                        <td width="12%">加入时间</td>
+                        <th width="20%">操作</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>SP385F340B7</td>
+                        <td><div style="word-break: break-all;">影儿恩裳北京东城区新分销商</div></td>
+                        <td>一级</td>
+                        <td>彭先生</td>
+                        <td>(+86) 13999999898</td>
+                        <td><span class="text-primary">￥9,9900.00</span></td>
+                        <td><span class="text-primary">￥9,9900.00</span></td>
+                        <td>
+                            <i class="table-tips bg-success"></i>
+                            <span>启动</span>
+                        </td>
+                        <td>2019-11-07 08:12:11</td>
+                        <td class="padding-0">
+                            <button type="button" class="td-btn primary" onclick="editFun()">编辑</button>
+                            <button type="button" class="td-btn primary" onclick="lookFun()">查看</button>
+                            <button type="button" class="td-btn primary" onclick="startFun()">启用</button>
+                            <button type="button" class="td-btn primary" onclick="rechargeFun()">充值</button>
+                            <button type="button" class="td-btn primary" onclick="deleteFun()">删除</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>SP385F340B7</td>
+                        <td><div style="word-break: break-all;">影儿恩裳北京东城区新分销商</div></td>
+                        <td>一级</td>
+                        <td>彭先生</td>
+                        <td>(+86) 13999999898</td>
+                        <td><span class="text-primary">￥9,9900.00</span></td>
+                        <td><span class="text-primary">￥9,9900.00</span></td>
+                        <td>
+                            <i class="table-tips bg-danger"></i>
+                            <span>停用</span>
+                        </td>
+                        <td>2019-11-07 08:12:11</td>
+                        <td class="padding-0">
+                            <button type="button" class="td-btn primary" onclick="editFun()">编辑</button>
+                            <button type="button" class="td-btn primary" onclick="lookFun()">查看</button>
+                            <button type="button" class="td-btn primary" onclick="stopFun()">停用</button>
+                            <button type="button" class="td-btn primary" onclick="rechargeFun()">充值</button>
+                            <button type="button" class="td-btn primary" onclick="deleteFun()">删除</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>SP385F340B7</td>
+                        <td><div style="word-break: break-all;">影儿恩裳北京东城区新分销商</div></td>
+                        <td>一级</td>
+                        <td>彭先生</td>
+                        <td>(+86) 13999999898</td>
+                        <td><span class="text-primary">￥9,9900.00</span></td>
+                        <td><span class="text-primary">￥9,9900.00</span></td>
+                        <td>
+                            <i class="table-tips bg-success"></i>
+                            <span>启动</span>
+                        </td>
+                        <td>2019-11-07 08:12:11</td>
+                        <td class="padding-0">
+                            <button type="button" class="td-btn primary" onclick="editFun()">编辑</button>
+                            <button type="button" class="td-btn primary" onclick="lookFun()">查看</button>
+                            <button type="button" class="td-btn primary" onclick="stopFun()">停用</button>
+                            <button type="button" class="td-btn primary" onclick="rechargeFun()">充值</button>
+                            <button type="button" class="td-btn primary" onclick="deleteFun()">删除</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <nav aria-label="Page navigation">
+            <ul class="pagination pagination-gap pull-right" id="pagination"></ul>
+            <div class="clearfix"></div>
+        </nav>
+    </div>
+    <div class="modal fade" id="modal-recharge" aria-hidden="true" aria-labelledby="modal-recharge" role="dialog" tabindex="-1">
+        <div class="modal-dialog modal-center">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="关闭">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                    <h4 class="modal-title">充值货款</h4>
+                </div>
+                <form class="form-horizontal" id="form-recharge">
+                    <div class="modal-body">
+                        <div class="form-group">
+                            <label class="col-md-3 control-label">类型</label>
+                            <div class="col-md-9">
+                                <div class="radio-custom radio-primary radio-inline">
+                                    <input type="radio" name="recharge_type" value="1" checked=""><label>充值货款</label>
+                                </div>
+                                <div class="radio-custom radio-primary radio-inline">
+                                    <input type="radio" name="recharge_type" value="2"><label>扣除货款</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-3 control-label"><font color="red">*</font> 数量</label>
+                            <div class="col-md-9">
+                                <input type="text" class="form-control" name="recharge_num" autocomplete="off" placeholder="请输入货款数目" onkeyup="decimal_v(this)" oninput="decimal_v(this)">
+                                <div class="margin-top-5 grey-500">最小为两位小数</div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-3 control-label"><font color="red">*</font> 备注</label>
+                            <div class="col-md-9">
+                                <textarea class="form-control padding-bottom-20" name="recharge_remarks" rows="3" placeholder="请输入备注信息" maxlength="20" onkeyup="checkMaxInput(this,20)" oninput="checkMaxInput(this,20)"></textarea>
+                                <div class="textarea-size text-right" style="margin-top: -25px;padding-right: 10px;">0/20</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                        <button type="submit" id="recharge-submit-btn" class="btn btn-primary">确定</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="modal-verify" aria-hidden="true" aria-labelledby="modal-verify" role="dialog" tabindex="-1">
+        <div class="modal-dialog modal-center">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="关闭">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                    <h4 class="modal-title">短信验证</h4>
+                </div>
+                <form class="form-horizontal" id="form-verify">
+                    <div class="modal-body">
+                        <div class="form-group">
+                            <label class="col-md-3 control-label">手机号</label>
+                            <div class="col-md-9">
+                                <div class="input-group">
+			                        <div class="input-group-btn">
+			                            <select class="form-control" name="phonecode">
+			                                <option value="86">+86</option>
+			                                <option value="886">+886</option>
+			                                <option value="852">+852</option>
+			                                <option value="853">+853</option>
+			                                <option value="60">+60</option>
+			                                <option value="63">+63</option>
+			                            </select>
+			                        </div>
+			                        <input type="text" class="form-control" name="verify_phone" placeholder="请输入验证手机号码" autocomplete="off" />
+			                    </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-3 control-label"><font color="red">*</font> 验证码</label>
+                            <div class="col-md-9">
+                                <div class="input-group">
+                                    <input type="text" class="form-control margin-right-15" style="width: 150px;" placeholder="请输入手机验证码" name="verify_code">
+                                    <button type="button" class="btn btn-primary btn-outline" onclick="getCode(this)">获取验证码</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                        <button type="submit" id="verify-submit-btn" class="btn btn-primary">确定</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+<script src="{$_static}/static/admui/public/themes/classic/global/js/plugins/responsive-tabs.js"></script>
+<script src="{$_static}/static/admui/public/vendor/ashoverscroll/jquery-asHoverScroll.min.js"></script>
+<script src="{$_static}/static/admui/public/vendor/slimscroll/jquery.slimscroll.min.js"></script>
+<script src="{$_static}/static/admui/public/vendor/screenfull/screenfull.min.js"></script>
+<script src="{$_static}/static/admui/public/vendor/matchheight/jquery.matchHeight.min.js"></script>
+<script src="{$_static}/static/admui/public/vendor/toastr/toastr.min.js"></script>
+<script src="{$_static}/static/admui/public/vendor/bootbox/bootbox.min.js"></script>
+<script src="{$_static}/static/admui/public/vendor/bootstrap-datetimepicker/js/bootstrap-datetimepicker.min.js"></script>
+<script src="{$_static}/static/admui/public/vendor/bootstrap-datetimepicker/js/bootstrap-datetimepicker.pt-BR.js"></script>
+<script src="{$_static}/static/admui/public/vendor/twbs-pagination/jquery.twbsPagination.min.js"></script>
+<script src="{$_static}/static/admui/public/vendor/formvalidation/formValidation.min.js"></script>
+<script src="{$_static}/static/admui/public/vendor/formvalidation/framework/bootstrap.min.js"></script>
+<script type="text/javascript">
+    $(function(){
+        /*回车搜索*/
+        $('#enter-search').enter_search(search);
+        full_height();
+        $(window).resize(function() {
+            full_height();
+        });
+        //分页
+        $('#pagination').twbsPagination({
+            totalPages: 35,
+            startPage: 1,
+            visiblePages: 10,
+            onPageClick: function(event, page) {
+                console.info(page);
+            }
+        });
+        /*选择时间段*/
+        $(".startTime").datetimepicker({
+            language : 'zh-CN',
+            format: 'yyyy-MM-dd hh:mm:ss',
+            forceParse : 0,
+            startDate:new Date(),
+        }).on('hide', function(event) {
+            event.preventDefault();
+            event.stopPropagation();
+            var startTime = event.date;
+            var timeStamp = event.timeStamp;
+            var endStamp = new Date($(".endTime input").val()).getTime();
+            $(".endTime").datetimepicker('setStartDate',startTime);
+            if($(".endTime input").val() === ''){
+                $(".endTime input").val($(".startTime input").val())
+            }
+        });
+        $(".endTime").datetimepicker({
+            language : 'zh-CN',
+            format: 'yyyy-MM-dd hh:mm:ss',
+            forceParse : 0,
+            startDate:new Date(),
+        }).on('hide', function(event) {
+            event.preventDefault();
+            event.stopPropagation();
+            var endTime = event.date;
+            $(".startTime").datetimepicker('setEndDate',endTime);
+            if($(".startTime input").val() === ''){
+                $(".startTime input").val($(".endTime input").val())
+            }
+        });
+        /*清除时间*/
+        $('.clear-dataTime').on('click',function(){
+            $(this).parents('.input-datetimepicker').find('input').val('');
+        });
+        /*充值表单验证*/
+        $('#form-recharge').formValidation($.po('formValidation', {
+            locale: 'zh_CN',
+            framework: 'bootstrap',
+            excluded: [':disabled', ':hidden'],
+            icon: false,
+            button: { //提交按钮
+                selector: '#recharge-submit-btn', //按钮对象
+                disabled: 'disabled' //验证失败是禁用按钮
+            },
+            fields: {
+                recharge_num: {
+                    validators: {
+                        notEmpty: {
+                            message: "请输入货款数目"
+                        }
+                    }
+                },
+                recharge_remarks: {
+                    validators: {
+                        notEmpty: {
+                            message: "请输入备注信息"
+                        }
+                    }
+                }
+            },
+            onSuccess: function(e) {
+                e.preventDefault(); //禁止触发form提交
+                console.log('成功');
+                $('#modal-recharge').modal('hide');
+                $('#modal-verify').modal('show');
+            }
+        }));
+        /*关闭充值弹窗，表单重置*/
+        $('#modal-recharge').on('hide.bs.modal', function () {
+            $('#form-recharge').data('formValidation').resetForm();
+            document.getElementById("form-recharge").reset();
+        });
+        /*验证码表单验证*/
+        $('#form-verify').formValidation($.po('formValidation', {
+            locale: 'zh_CN',
+            framework: 'bootstrap',
+            excluded: [':disabled', ':hidden'],
+            icon: false,
+            button: { //提交按钮
+                selector: '#verify-submit-btn', //按钮对象
+                disabled: 'disabled' //验证失败是禁用按钮
+            },
+            fields: {
+                verify_phone: {
+                    validators: {
+                        notEmpty: {
+                            message: "请输入验证手机号码"
+                        },
+                        regexp: {
+                            regexp: /^1[\d]{10}$/,
+                            message: "请填写正确的手机号码"
+                        }
+                    }
+                },
+                verify_code: {
+                    validators: {
+                        notEmpty: {
+                            message: "请输入手机验证码"
+                        }
+                    }
+                }
+            },
+            onSuccess: function(e) {
+                e.preventDefault(); //禁止触发form提交
+                console.log('成功');
+                $('#modal-verify').modal('hide');
+            }
+        }));
+        /*关闭充值弹窗，表单重置*/
+        $('#modal-verify').on('hide.bs.modal', function () {
+            $('#form-verify').data('formValidation').resetForm();
+            document.getElementById("form-verify").reset();
+        })
+    });
+    /*搜索方法*/
+    function search(){
+        alert('搜索');
+    }
+    
+    /*设置页面高度*/
+    function full_height(){
+        let win_height = $(window).height();
+        let doc_height = $(document.body).height();
+        var min_height = win_height - $('.page-header-box').outerHeight() - 132;
+        if(win_height > doc_height){
+            $('.full-height').css('height',min_height+'px');
+        }
+    }
+    /*编辑*/
+    function editFun(){
+
+    }
+    /*查看*/
+    function lookFun(){
+
+    }
+    /*启用*/
+    function startFun(){
+    	bootbox.confirm({ 
+            title:"确认启用",
+            message: "分销商一经启用将恢复分销资格，是否确认启用？",
+            buttons: {
+                confirm: {
+                    label: "确认",
+                    className: 'btn-primary'
+                },
+                cancel: {
+                    label: "取消",
+                    className: 'btn-default'
+                }
+            }, 
+            callback: function(result){
+                if(result){
+                    
+                }else{
+                }
+            }
+        });
+    }
+    /*停用*/
+    function stopFun(){
+    	bootbox.confirm({ 
+            title:"确认停用",
+            message: "分销商一经停用将取消分销资格，是否确认停用？",
+            buttons: {
+                confirm: {
+                    label: "确认",
+                    className: 'btn-primary'
+                },
+                cancel: {
+                    label: "取消",
+                    className: 'btn-default'
+                }
+            }, 
+            callback: function(result){
+                if(result){
+                    
+                }else{
+                }
+            }
+        });
+    }
+    /*充值*/
+    function rechargeFun(){
+        $('#modal-recharge').modal('show');
+    }
+    /*删除*/
+    function deleteFun(){
+        bootbox.confirm({ 
+            title:"确认删除",
+            message: "分销商一经删除就无法恢复，确认删除吗？",
+            buttons: {
+                confirm: {
+                    label: "确认",
+                    className: 'btn-primary'
+                },
+                cancel: {
+                    label: "取消",
+                    className: 'btn-default'
+                }
+            }, 
+            callback: function(result){
+                if(result){
+                    
+                }else{
+                }
+            }
+        });
+    }
+    /*获取手机验证码*/
+    function getCode(obj) {
+        var fv = $('#form-verify').data('formValidation');
+        fv.validateField('verify_phone');/*表单验证手机项*/
+        if( fv.isValidField('verify_phone') ){
+        	$(obj).attr('disabled','disabled');
+        	countDown(obj,'10');
+        }
+    }
+    /*获取验证码倒计时*/
+    function countDown(obj,time){
+        var num = time;
+        if(num > 0) {
+            $(obj).html(num+'s后重新获取');
+            var timerCodeson = setInterval(function() {
+                num--;
+                $(obj).html(num+'s后重新获取');
+                if(num == 0) {
+                    clearInterval(timerCodeson)
+                    $(obj).html('重新获取验证码');
+                    $(obj).removeAttr('disabled');
+                }
+            }, 1000)
+        } else {
+            $(obj).html('获取验证码');
+        }
+    }
+    /*保留2位小数*/
+    function decimal_v(obj){
+        obj.value = obj.value.replace(/[^\d.]/g,"");
+        obj.value = obj.value.replace(/\.{2,}/g,"."); 
+        obj.value = obj.value.replace(/^(\d+)(\.)(\d\d).*$/,'$1$2$3');
+    }
+    /*输入字数限制*/
+    function checkMaxInput(obj, num) {
+    	var val = obj.value.replace(/(^\s+)|(\s+$)/g,"");
+	    $(obj).val(val);
+	    var val_len = val.length > num ? num : val.length;
+	    $(obj).next(".textarea-size").text(val_len + "/" + num)
+	}
+</script>
+</html>
